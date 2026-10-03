@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart DZ STORE</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,Tahoma,sans-serif;background:#fff;color:#111}
+header{background:#0b0b0b;color:#fff;padding:16px 5%;position:sticky;top:0;z-index:10}
+.nav{max-width:1200px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:15px}
+.logo{font-size:25px;font-weight:900}.logo span{color:#ffd400}
+.cart{background:#ffd400;color:#111;border:0;border-radius:12px;padding:11px 16px;font-weight:bold;cursor:pointer}
+.hero{background:linear-gradient(135deg,#111 0%,#222 60%,#ffd400 60%,#ffd400 100%);color:white;padding:65px 5%}
+.hero-inner{max-width:1200px;margin:auto}.hero h1{font-size:42px;margin:0 0 12px}.hero p{font-size:19px;max-width:620px;line-height:1.7}
+.btn{display:inline-block;background:#ffd400;color:#111;text-decoration:none;padding:14px 23px;border-radius:10px;font-weight:bold;margin-top:10px}
+section{max-width:1200px;margin:40px auto;padding:0 18px}
+h2{font-size:28px;margin-bottom:22px;border-right:6px solid #ffd400;padding-right:10px}
+.categories{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px}
+.cat{background:#111;color:#fff;padding:18px 10px;text-align:center;border-radius:12px;font-weight:bold}
+.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:18px}
+.card{border:1px solid #eee;border-radius:15px;overflow:hidden;background:#fff;box-shadow:0 4px 18px #0000000d}
+.photo{height:190px;background:#f3f3f3;display:flex;align-items:center;justify-content:center;font-size:55px}
+.info{padding:16px}.info h3{margin:0 0 8px}.price{font-size:20px;font-weight:bold;margin:12px 0}.buy{width:100%;border:0;background:#ffd400;padding:12px;border-radius:9px;font-weight:bold;cursor:pointer}
+.features{background:#111;color:#fff;border-radius:18px;padding:25px;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:18px}
+.feature{text-align:center;padding:12px}.feature b{display:block;color:#ffd400;margin-bottom:7px}
+footer{background:#0b0b0b;color:#fff;text-align:center;padding:28px;margin-top:45px}
+.modal{display:none;position:fixed;inset:0;background:#0008;z-index:20;padding:20px}.box{background:#fff;max-width:520px;margin:5vh auto;padding:25px;border-radius:18px}
+input,select,textarea{width:100%;padding:13px;margin:7px 0;border:1px solid #ddd;border-radius:9px;font-size:15px}
+.submit{background:#ffd400;border:0;padding:14px;width:100%;border-radius:9px;font-weight:bold;cursor:pointer}
+.close{float:left;cursor:pointer;font-size:24px}
+@media(max-width:600px){.hero h1{font-size:32px}.hero{padding:45px 5%}.logo{font-size:20px}}
+</style>
+</head>
+<body>
+<header><div class="nav"><div class="logo">SMART <span>DZ</span> STORE</div><button class="cart" onclick="openCart()">🛒 السلة (<span id="count">0</span>)</button></div></header>
+
+<div class="hero"><div class="hero-inner">
+<h1>كل ما تحتاجه... في مكان واحد 🛍️</h1>
+<p>Smart DZ STORE — متجر إلكتروني جزائري للمنتجات المتنوعة، مع الدفع عند الاستلام.</p>
+<a class="btn" href="#products">تسوق الآن</a>
+</div></div>
+
+<section><h2>الأقسام</h2><div class="categories">
+<div class="cat">📱 إلكترونيات</div><div class="cat">🏠 أدوات منزلية</div><div class="cat">💄 تجميل</div>
+<div class="cat">🎁 منتجات متنوعة</div><div class="cat">⌚ إكسسوارات</div><div class="cat">🚗 سيارات ودراجات</div>
+<div class="cat">📲 إكسسوارات هواتف</div><div class="cat">🧸 أطفال</div><div class="cat">👕 ألبسة</div>
+</div></section>
+
+<section><div class="features">
+<div class="feature">🚚<b>توصيل للزبائن</b>داخل الجزائر</div>
+<div class="feature">💵<b>الدفع عند الاستلام</b>ادفع عند وصول الطلب</div>
+<div class="feature">🛍️<b>منتجات متنوعة</b>اختيارات متعددة</div>
+<div class="feature">📞<b>خدمة الزبائن</b>نتواصل معك لتأكيد الطلب</div>
+</div></section>
+
+<section id="products"><h2>منتجات مختارة</h2><div class="products">
+<div class="card"><div class="photo">📱</div><div class="info"><h3>منتج إلكتروني</h3><p>أضف وصف المنتج هنا</p><div class="price">السعر: أضف السعر</div><button class="buy" onclick="add()">أضف للسلة</button></div></div>
+<div class="card"><div class="photo">🏠</div><div class="info"><h3>منتج منزلي</h3><p>أضف وصف المنتج هنا</p><div class="price">السعر: أضف السعر</div><button class="buy" onclick="add()">أضف للسلة</button></div></div>
+<div class="card"><div class="photo">💄</div><div class="info"><h3>منتج تجميل</h3><p>أضف وصف المنتج هنا</p><div class="price">السعر: أضف السعر</div><button class="buy" onclick="add()">أضف للسلة</button></div></div>
+<div class="card"><div class="photo">🚗</div><div class="info"><h3>إكسسوار سيارات</h3><p>أضف وصف المنتج هنا</p><div class="price">السعر: أضف السعر</div><button class="buy" onclick="add()">أضف للسلة</button></div></div>
+</div></section>
+
+<div class="modal" id="modal"><div class="box"><span class="close" onclick="closeCart()">×</span><h2>إتمام الطلب</h2>
+<p>الدفع عند الاستلام 💵</p>
+<input placeholder="الاسم واللقب"><input placeholder="رقم الهاتف" type="tel">
+<input placeholder="الولاية"><input placeholder="البلدية"><textarea placeholder="العنوان بالتفصيل"></textarea>
+<select><option>التوصيل إلى المنزل</option><option>التوصيل إلى المكتب</option></select>
+<button class="submit" onclick="alert('تم تسجيل طلبك تجريبيًا. أضف رقم واتساب/خدمة الطلب لاحقًا.')">تأكيد الطلب</button>
+</div></div>
+
+<footer><b>Smart DZ STORE</b><br><small>متجر إلكتروني جزائري • الدفع عند الاستلام</small></footer>
+<script>
+let count=0;
+function add(){count++;document.getElementById('count').textContent=count;alert('تمت إضافة المنتج إلى السلة 🛒');}
+function openCart(){document.getElementById('modal').style.display='block'}
+function closeCart(){document.getElementById('modal').style.display='none'}
+</script>
+</body></html>
